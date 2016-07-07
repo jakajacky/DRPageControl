@@ -12,6 +12,7 @@
 		F2AA91921D2CD6D600E57253 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2AA91901D2CD6D600E57253 /* Main.storyboard */; };
 		F2AA91941D2CD6D600E57253 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AA91931D2CD6D600E57253 /* Assets.xcassets */; };
 		F2AA91971D2CD6D600E57253 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2AA91951D2CD6D600E57253 /* LaunchScreen.storyboard */; };
+		F2AA91A21D2CD97F00E57253 /* DRPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA91A11D2CD97F00E57253 /* DRPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F2AA91931D2CD6D600E57253 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2AA91961D2CD6D600E57253 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2AA91981D2CD6D600E57253 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2AA91A11D2CD97F00E57253 /* DRPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +58,21 @@
 			children = (
 				F2AA918C1D2CD6D600E57253 /* AppDelegate.swift */,
 				F2AA918E1D2CD6D600E57253 /* ViewController.swift */,
+				F2AA919E1D2CD92800E57253 /* DRPageControl */,
 				F2AA91901D2CD6D600E57253 /* Main.storyboard */,
 				F2AA91931D2CD6D600E57253 /* Assets.xcassets */,
 				F2AA91951D2CD6D600E57253 /* LaunchScreen.storyboard */,
 				F2AA91981D2CD6D600E57253 /* Info.plist */,
 			);
 			path = DRPageControl_Swift;
+			sourceTree = "<group>";
+		};
+		F2AA919E1D2CD92800E57253 /* DRPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				F2AA91A11D2CD97F00E57253 /* DRPageControl.swift */,
+			);
+			path = DRPageControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2AA91A21D2CD97F00E57253 /* DRPageControl.swift in Sources */,
 				F2AA918F1D2CD6D600E57253 /* ViewController.swift in Sources */,
 				F2AA918D1D2CD6D600E57253 /* AppDelegate.swift in Sources */,
 			);
@@ -253,7 +265,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DRPageControl_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ideabinder.DRPageControl-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideabinder.DRImgScrollerView1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -264,7 +276,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DRPageControl_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ideabinder.DRPageControl-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideabinder.DRImgScrollerView1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -288,6 +300,7 @@
 				F2AA919D1D2CD6D600E57253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
