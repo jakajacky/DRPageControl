@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         v!.numberOfPages = 5
         v!.currentPage = 0
         v!.dotColor = UIColor.whiteColor()
+        v!.dotSize  = 15
         self.view.addSubview(v!)
     }
 
