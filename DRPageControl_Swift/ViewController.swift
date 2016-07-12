@@ -17,11 +17,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         v = DRPageControl(frame: CGRectMake(0, 70, 375, 20))
-        v!.backgroundColor = UIColor.cyanColor()
         v!.numberOfPages = 5
+        v!.backgroundColor = UIColor.cyanColor()
         v!.currentPage = 0
-        v!.dotColor = UIColor.whiteColor()
+        v!.dotColor = UIColor.yellowColor()
         v!.dotSize  = 15
+        v!.dotImage = UIImage(named: "normalDotImg")
+        v!.currentDotImage = UIImage(named: "currentDotImg")
         self.view.addSubview(v!)
     }
 

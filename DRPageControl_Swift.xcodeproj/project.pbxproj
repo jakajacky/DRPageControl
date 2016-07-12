@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F235C42F1D3498F500E10A67 /* currentDotImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F235C42D1D3498F500E10A67 /* currentDotImg.png */; };
+		F235C4301D3498F500E10A67 /* normalDotImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F235C42E1D3498F500E10A67 /* normalDotImg.png */; };
 		F2AA918D1D2CD6D600E57253 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA918C1D2CD6D600E57253 /* AppDelegate.swift */; };
 		F2AA918F1D2CD6D600E57253 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA918E1D2CD6D600E57253 /* ViewController.swift */; };
 		F2AA91921D2CD6D600E57253 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2AA91901D2CD6D600E57253 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F235C42D1D3498F500E10A67 /* currentDotImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentDotImg.png; sourceTree = "<group>"; };
+		F235C42E1D3498F500E10A67 /* normalDotImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalDotImg.png; sourceTree = "<group>"; };
 		F2AA91891D2CD6D600E57253 /* DRPageControl_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRPageControl_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AA918C1D2CD6D600E57253 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2AA918E1D2CD6D600E57253 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				F2AA91931D2CD6D600E57253 /* Assets.xcassets */,
 				F2AA91951D2CD6D600E57253 /* LaunchScreen.storyboard */,
 				F2AA91981D2CD6D600E57253 /* Info.plist */,
+				F235C42D1D3498F500E10A67 /* currentDotImg.png */,
+				F235C42E1D3498F500E10A67 /* normalDotImg.png */,
 			);
 			path = DRPageControl_Swift;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 				F2AA91971D2CD6D600E57253 /* LaunchScreen.storyboard in Resources */,
 				F2AA91941D2CD6D600E57253 /* Assets.xcassets in Resources */,
 				F2AA91921D2CD6D600E57253 /* Main.storyboard in Resources */,
+				F235C4301D3498F500E10A67 /* normalDotImg.png in Resources */,
+				F235C42F1D3498F500E10A67 /* currentDotImg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

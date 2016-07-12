@@ -20,8 +20,17 @@ var scale:CGFloat = 1.4
 
 class DRPageControl: UIControl {
 
-    var dotImage:UIImage?
-    var currentDotImage:UIImage?
+    var dotImage:UIImage? {
+        didSet {
+            // 设置dot 图片
+            setDotImage()
+        }
+    }
+    var currentDotImage:UIImage? {
+        didSet {
+            setCurrentDotImage()
+        }
+    }
     var dotSize:Int? {
         didSet {
             // 设置dot 大小
@@ -100,8 +109,6 @@ class DRPageControl: UIControl {
                 print("\(view)++++++\(CGRectMake(x, startY, CGFloat(dotSize!), CGFloat(dotSize!)))")
             }
             else {
-            
-            
                 view = UIView(frame: CGRectMake(x, startY, CGFloat(dotSize!), CGFloat(dotSize!)))
                 view.backgroundColor = UIColor.clearColor()
                 view.layer.cornerRadius = CGFloat(dotSize!) / 2
@@ -119,6 +126,7 @@ class DRPageControl: UIControl {
         
         // 默认选中第一个
         currentPage = 0
+    
     }
     
     // 更新
@@ -136,12 +144,47 @@ class DRPageControl: UIControl {
             view.backgroundColor = UIColor.clearColor()
             view.layer.cornerRadius = CGFloat(dotSize!) / 2
             view.layer.borderColor = dotColor!.CGColor
-            view.layer.borderWidth = 1
             
             i += 1
+            guard let dotImg = dotImage else {
+                view.layer.borderWidth = 1
+                break
+            }
+            view.layer.borderWidth = 0
+//            if view.subviews.count == 0 {
+//                continue
+//            }
+//            view.subviews[0].removeFromSuperview() // 清除原来image
+//            let imgView = UIImageView(frame: view.bounds)
+//            imgView.image = dotImg
+//            view.addSubview(imgView)
+            
         }
         
         setSeclectedDot()
+    }
+    
+    // 设置dot 图片
+    func setDotImage() {
+        for dot in dots {
+            let view:UIView = dot as! UIView
+            
+            guard let dotImg = dotImage else {
+                
+                break
+            }
+            let imgView = UIImageView(frame: view.bounds)
+            imgView.image = dotImg
+            view.addSubview(imgView)
+            view.layer.borderWidth = 0
+        }
+        //        updateViews()
+    }
+    
+    func setCurrentDotImage() {
+        updateViews()
+        //        setSeclectedDot()
+        
     }
     
     // 设置dot 大小
@@ -160,6 +203,9 @@ class DRPageControl: UIControl {
             }
             view.frame = CGRectMake(x, startY, CGFloat(dotSize!), CGFloat(dotSize!))
             view.layer.cornerRadius = CGFloat(dotSize!) / 2
+            if view.subviews.count > 0 {
+                view.subviews[0].frame = view.bounds
+            }
             
             i += 1
         }
@@ -172,7 +218,12 @@ class DRPageControl: UIControl {
     func setDotsColor() {
         for dot in dots {
             let view:UIView = dot as! UIView
-            view.layer.borderColor = dotColor!.CGColor
+//            guard let dotImg = dotImage else {
+                view.layer.borderColor = dotColor!.CGColor
+//                return
+//            }
+//            view.layer.borderWidth = 0
+            
         }
         
         // 更新
@@ -182,6 +233,15 @@ class DRPageControl: UIControl {
     // 设置选中状态
     func setSeclectedDot() {
         
+        if dots.count == 0 {
+            return
+        }
+        
+        let realWidth = (numberOfPages! - 1) * spacingBetweenDots! + numberOfPages! * self.dotSize!
+        let startX    = (width - CGFloat(realWidth)) / 2
+        let startY    = (height - CGFloat(self.dotSize!)) / 2
+        
+        let x = startX + CGFloat(currentPage * (spacingBetweenDots! + dotSize!))
         // 当前dot 改变状态
         let view = dots[currentPage] as? UIView
         
@@ -192,8 +252,19 @@ class DRPageControl: UIControl {
                                    options: UIViewAnimationOptions.CurveLinear ,
                                    animations:
             {
-                view?.backgroundColor = self.dotColor!
-                view?.transform = CGAffineTransformMakeScale(scale, scale)
+                guard let dotImg = self.currentDotImage else { // 是否设置了dotImage
+                    view?.backgroundColor = self.dotColor!
+                    view?.transform = CGAffineTransformMakeScale(scale, scale)
+                    return
+                }
+                
+                view?.transform = CGAffineTransformIdentity
+                view?.frame = CGRectMake(x, startY, CGFloat(self.dotSize!), CGFloat(self.dotSize!))
+                view?.backgroundColor = UIColor.clearColor()
+                view?.layer.borderWidth = 0
+                let imageView =  view?.subviews[0] as! UIImageView
+                imageView.image = self.currentDotImage
+                print("frame====\(view?.frame)")
             },
                                    completion: nil)
         
@@ -212,8 +283,17 @@ class DRPageControl: UIControl {
                                            options: UIViewAnimationOptions.CurveLinear,
                                            animations:
                     {
-                        lastView?.backgroundColor = UIColor.clearColor()
+                        guard let dotImg = self.dotImage else { // 是否设置了dotImage
+                            lastView?.backgroundColor = UIColor.clearColor()
+                            lastView?.transform = CGAffineTransformIdentity
+                            return
+                        }
+                        
                         lastView?.transform = CGAffineTransformIdentity
+                        lastView?.backgroundColor = UIColor.clearColor()
+                        lastView?.layer.borderWidth = 0
+                        let imageView =  lastView?.subviews[0] as! UIImageView
+                        imageView.image = self.dotImage
                     },
                                            completion: nil)
             }
